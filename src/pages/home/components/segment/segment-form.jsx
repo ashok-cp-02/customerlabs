@@ -25,7 +25,7 @@ const SegmentForm = () => {
   const [segmentFormShow, setSegmentFormShow] = useState(false);
   const [schemas, setSchemas] = useState([]);
   const [segmentName, setSegmentName] = useState("");
-  const [segmentNameError, setsegmentNameError] = useState(false);
+  const [segmentNameError, setSegmentNameError] = useState(false);
   const [schemaOptions, setSchemaOptions] = useState([
     { value: "first_name", label: "First Name", traits: "user" },
     { value: "last_name", label: "Last Name", traits: "user" },
@@ -67,15 +67,13 @@ const SegmentForm = () => {
       { value: removedSchema, label: removedSchema },
     ]);
   };
+
   const handleSaveSegment = () => {
-    // Check if the segment name is not empty
     if (segmentName.trim() === "") {
-      //   alert("Please enter a segment name");
-      setsegmentNameError(true);
+      setSegmentNameError(true);
       return;
     }
 
-    // Create the object with segment_name and schema
     const segmentObject = {
       segment_name: segmentName,
       schema: schemas.reduce((acc, schema) => {
@@ -88,40 +86,23 @@ const SegmentForm = () => {
       }, []),
     };
 
-    // Log or dispatch the segmentObject as needed
     console.log(segmentObject);
 
-    // Make a POST request to your webhook server
     axios
-      .post("https://ea5a0c16.proxy.webhookapp.com/", segmentObject)
+      .post(
+        "https://webhook.site/8364fdf2-d5bc-40cb-a3a1-f666a714b0a4",
+        segmentObject
+      )
       .then((response) => {
-        // Log the response from the server
         console.log("Webhook server response:", response.data);
-
-        // Reset schemas and schemaOptions
-        setSchemas([]);
-        setSchemaOptions([
-          { value: "first_name", label: "First Name", traits: "user" },
-          { value: "last_name", label: "Last Name", traits: "user" },
-          { value: "gender", label: "Gender", traits: "group" },
-          { value: "age", label: "Age", traits: "user" },
-          { value: "account_name", label: "Account Name", traits: "group" },
-          { value: "city", label: "City", traits: "user" },
-          { value: "state", label: "State", traits: "group" },
-        ]);
-
-        // Optionally, you can reset the form and close the modal
-        setSegmentName("");
-        setSegmentFormShow(false);
+        resetForm();
       })
       .catch((error) => {
         console.error("Error sending data to webhook:", error);
-        // Handle the error as needed (show an error message, log, etc.)
       });
   };
 
-  const handleCancelSegment = () => {
-    // Reset schemas and schemaOptions
+  const resetForm = () => {
     setSchemas([]);
     setSchemaOptions([
       { value: "first_name", label: "First Name", traits: "user" },
@@ -132,9 +113,8 @@ const SegmentForm = () => {
       { value: "city", label: "City", traits: "user" },
       { value: "state", label: "State", traits: "group" },
     ]);
-
-    // Optionally, you can reset the form and close the modal
     setSegmentName("");
+    setSegmentNameError(false);
     setSegmentFormShow(false);
   };
   return (
@@ -163,7 +143,7 @@ const SegmentForm = () => {
                   value={segmentName}
                   onChange={(e) => {
                     setSegmentName(e.target.value);
-                    setsegmentNameError(false);
+                    setSegmentNameError(false);
                   }}
                 />
                 {segmentNameError && <span>Please enter a segment name</span>}
@@ -263,7 +243,7 @@ const SegmentForm = () => {
               <button className="save" onClick={handleSaveSegment}>
                 Save the Segment
               </button>
-              <button onClick={handleCancelSegment} className="cancel">
+              <button onClick={resetForm} className="cancel">
                 Cancel
               </button>
             </div>
