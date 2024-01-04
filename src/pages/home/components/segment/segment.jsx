@@ -5,6 +5,8 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 //? Components
 import SegmentForm from "./segment-form";
 //? CSS
@@ -23,6 +25,7 @@ const Segment = () => {
         <Row>
           <Col xxl={12}>
             <SegmentForm />
+            <ToastContainer />
           </Col>
         </Row>
       </Container>

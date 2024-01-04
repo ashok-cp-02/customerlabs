@@ -2,11 +2,11 @@
 
 .segment {
   padding: 100px 0px;
-  height: 60vh;
+  height: calc(100vh - 150px);
   display: flex;
   align-items: center;
   justify-content: center;
-  button {
+  button.save-segment-btn {
     cursor: pointer;
     position: relative;
     z-index: 2;
@@ -56,6 +56,13 @@
     }
     &:hover::before {
       width: 100%;
+    }
+  }
+  .Toastify {
+    .Toastify__toast {
+      font-family: $themefont !important;
+      font-size: 16px;
+      font-weight: 400;
     }
   }
 }

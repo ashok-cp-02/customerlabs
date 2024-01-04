@@ -15,6 +15,7 @@
         justify-content: flex-start;
         background-color: $themecolor;
         gap: 5px;
+        height: 70px;
         span {
           svg {
             color: #fff;
@@ -32,7 +33,14 @@
         }
       }
       .content {
+        height: calc(100vh - 140px);
         padding: 20px 15px;
+        overflow: scroll;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        &::-webkit-scrollbar {
+          display: none; /* Safari and Chrome */
+        }
         .segment-name {
           label {
             font-family: $themefont3;
@@ -207,7 +215,7 @@
         display: flex;
         align-items: center;
         gap: 20px;
-
+        height: 70px;
         button {
           cursor: pointer;
           position: relative;

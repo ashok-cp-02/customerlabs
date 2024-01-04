@@ -7,6 +7,8 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import Form from "react-bootstrap/Form";
 import Select from "react-select";
 import axios from "axios";
+import { toast } from "react-toastify";
+
 //? Components
 import ThemeContext from "../../../../common/theme/components/contexts/themecontexts";
 //? CSS
@@ -90,15 +92,36 @@ const SegmentForm = () => {
 
     axios
       .post(
-        "https://webhook.site/35b13486-af67-4b47-a8c6-4b053f2444cd",
+        "https://webhook.site/26aa003d-6d3e-4264-b9ff-67c6e8f76fbb",
         segmentObject
       )
       .then((response) => {
         console.log("Webhook server response:", response.data);
+        toast.success(response.data, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
         resetForm();
       })
       .catch((error) => {
         console.error("Error sending data to webhook:", error);
+        toast.error("Segment Added Faild", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        resetForm();
       });
   };
 
@@ -119,7 +142,9 @@ const SegmentForm = () => {
   };
   return (
     <>
-      <button onClick={handleSegmentFormShow}>Save Segment</button>
+      <button className="save-segment-btn" onClick={handleSegmentFormShow}>
+        Save Segment
+      </button>
       <Offcanvas
         show={segmentFormShow}
         onHide={resetForm}
