@@ -1,0 +1,287 @@
+@import "../../../../../common/assets/css/main.scss";
+
+.offcanvas.segment-form-canva {
+  border: none;
+  width: 445px;
+  .offcanvas-body {
+    padding: 0px;
+    .body-content {
+      position: relative;
+      .heading {
+        cursor: pointer;
+        padding: 20px 15px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        background-color: $themecolor;
+        gap: 5px;
+        span {
+          svg {
+            color: #fff;
+            font-size: 18px;
+            margin-top: -4px;
+          }
+        }
+        h3 {
+          margin: 0px 0px 0px 0px;
+          color: #fff;
+          font-family: $themefont3;
+          font-size: 18px;
+          font-weight: 500;
+          line-height: 1;
+        }
+      }
+      .content {
+        padding: 20px 15px;
+        .segment-name {
+          label {
+            font-family: $themefont3;
+            font-size: 15px;
+            color: #384050;
+            margin-bottom: 15px;
+          }
+          input {
+            font-family: $themefont3;
+            font-size: 14px;
+            color: #384050;
+            margin-bottom: 15px;
+            border: 1px solid #7b8590;
+            box-shadow: none;
+            height: 40px;
+            margin-bottom: 5px;
+            border-radius: 0px;
+          }
+          span {
+            font-family: $themefont3;
+            font-size: 14px;
+            color: #d92662;
+          }
+          p {
+            font-family: $themefont3;
+            font-size: 15px;
+            color: #384050;
+            margin-bottom: 15px;
+            margin-top: 20px;
+          }
+        }
+        .add-segment {
+          .traits {
+            margin: 30px 0px;
+            ul {
+              list-style-type: none;
+              margin: 0px;
+              padding: 0px;
+              display: flex;
+              align-items: center;
+              justify-content: flex-end;
+              gap: 15px;
+              li {
+                font-family: $themefont3;
+                font-size: 14px;
+                color: #384050;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 5px;
+                span {
+                  width: 10px;
+                  height: 10px;
+                  border-radius: 50%;
+                  display: block;
+                  &.user {
+                    background-color: #00c070;
+                  }
+                  &.group {
+                    background-color: #d92662;
+                  }
+                }
+              }
+            }
+          }
+          .dynamic-schema {
+            margin-bottom: 30px;
+            ul {
+              list-style-type: none;
+              margin: 0px;
+              padding: 0px;
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              flex-direction: column;
+              li {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                select {
+                  height: 40px;
+                  width: calc(100% - 70px);
+                  border-radius: 0px;
+                  box-shadow: none;
+                  border: 1px solid #7b8590;
+                  font-family: $themefont3;
+                  font-size: 14px;
+                  color: #384050;
+                }
+                button.minus-btn {
+                  background-color: #f2fbf9;
+                  width: 40px;
+                  height: 40px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  border: none;
+                  outline: none;
+                  box-shadow: none;
+                  svg {
+                    font-size: 20px;
+                    color: #657a93;
+                  }
+                }
+                span.traits-list {
+                  width: 10px;
+                  height: 10px;
+                  border-radius: 50%;
+                  display: block;
+                  &.user {
+                    background-color: #00c070;
+                  }
+                  &.group {
+                    background-color: #d92662;
+                  }
+                }
+              }
+            }
+          }
+          .add-btn {
+            .dropdown-div {
+              width: 100%;
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              select {
+                height: 40px;
+                width: calc(100% - 70px);
+                border-radius: 0px;
+                border: 1px solid #7b8590;
+                box-shadow: none;
+                font-family: $themefont3;
+                font-size: 14px;
+                color: #384050;
+              }
+              span.traits-list {
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                display: block;
+                background-color: #e2e4e6;
+              }
+            }
+            button {
+              margin: 12px 0px 0px 20px;
+              background-color: transparent;
+              color: $themecolor;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border: none;
+              outline: none;
+              box-shadow: none;
+              font-family: $themefont3;
+              font-size: 13.5px;
+              font-weight: 600;
+              border-bottom: 1px solid $themecolor;
+              padding: 0px 0px 2px 0px;
+              line-height: normal;
+              svg {
+                font-size: 20px;
+                color: #657a93;
+              }
+            }
+          }
+        }
+      }
+      .footer-div {
+        background-color: #f6f6f6;
+        padding: 20px 15px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        button {
+          cursor: pointer;
+          position: relative;
+          z-index: 2;
+          overflow: hidden;
+          vertical-align: middle;
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          border: none;
+          text-transform: capitalize;
+          text-align: center;
+          background-color: $themecolor;
+          color: #fff;
+          font-family: $themefont3;
+          font-size: 14px;
+          font-weight: 500;
+          padding: 8px 20px;
+          line-height: inherit;
+          border-radius: 5px;
+          -webkit-transition: background-color 0.25s linear,
+            color 0.4s ease-in-out;
+          transition: background-color 0.25s linear, color 0.4s ease-in-out;
+          text-decoration: none;
+          margin: 0px 0px;
+          &:before {
+            content: "";
+            position: absolute;
+            height: 100%;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            background-color: #000;
+            z-index: -1;
+            -webkit-transition: all 0.3s ease-out;
+            transition: all 0.3s ease-out;
+            border-radius: inherit;
+            @include themed() {
+              background-color: t("whitecolor");
+            }
+          }
+          &:hover {
+            color: #fff;
+            background-color: #000;
+          }
+          &:hover::before {
+            width: 100%;
+          }
+          &.save {
+            background-color: $themecolor;
+            color: #fff;
+            &:before {
+              background-color: #106050;
+              color: #fff;
+            }
+            &:hover {
+              background-color: #106050;
+              color: #fff;
+            }
+          }
+          &.cancel {
+            background-color: #fff;
+            color: #d92662;
+            &:before {
+              background-color: #d92662;
+              color: #fff;
+            }
+            &:hover {
+              color: #fff;
+              background-color: #d92662;
+            }
+          }
+        }
+      }
+    }
+  }
+}

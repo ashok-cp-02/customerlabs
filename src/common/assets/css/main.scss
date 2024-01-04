@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Monomaniac+One&family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+$themefont: ("Outfit", sans-serif);
+$themefont2: ("Monomaniac One", sans-serif);
+$themefont3: ("Poppins", sans-serif);
+
+$themecolor: var(--themecolor);
+// $themecolor: #6366f1;
+// $themecolor: #ff014f;
+// $themecolor: #d74996;
+// $themecolor: #015fe0;
+// $themecolor: #30a499;
+// $themecolor: #55e6a5;
+
+$themes: (
+  light: (
+    bg: white,
+    text: black,
+  ),
+  dark: (
+    whitecolor: #fff,
+    blackcolor: #000,
+    light-green: #00c070,
+    green2: #108060,
+    green3: #186c60,
+    dark1: #070f1c,
+    dark2: #131927,
+    dark3: rgb(8 21 34),
+    dark4: #0a1929,
+    dark5: #02111f,
+    pinkcolor: #d92662,
+    none: none,
+    light-text: #b2bac2,
+    transparentbg: transparent,
+    hoverbg: #001e3c,
+    tblue: #276cf6,
+    tblue2: #607ee9,
+    hovercolor: #99ccf3,
+    boredr1: 1px solid,
+    menu-shadow: (
+      #001e3c 0px 1px 3px 0px,
+      #001e3c 0px 0px 0px 1px,
+    ),
+    div-shadow: (
+      #064d9369 0px 1px 0px 0px,
+      #064d9369 0px 0px 0px 1px,
+    ),
+    b-color: #064d9369,
+    // header
+    header-shadow: inset 0px -1px 1px #261d56,
+    header-bg: rgb(8 21 34),
+    header-blur: blur(8px),
+    minus2px: -2px,
+    inputoutline: 3px solid #ffffff,
+    top54px: 54px,
+    top60px: 60px,
+    themelight: #9ee86f,
+    themedark: #173303,
+    // p5px:5px,
+    // header,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+    // New Theme
+    themedark1: #0d0620,
+    themedark2: rgb(13 6 32 / 75%),
+    skillshadow: 0 3px 8px -1px rgba(0, 0, 0, 0.08),
+    skillbg: rgba(255, 255, 255, 0.06),
+    paginationbg: rgb(255 255 255 / 18%),
+  ),
+);
+
+@mixin themed() {
+  @each $theme, $map in $themes {
+    .theme--#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), "#{$key}");
+        $theme-map: map-merge(
+          $theme-map,
+          (
+            $key: $value,
+          )
+        ) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function t($key) {
+  @return map-get($theme-map, $key);
+}
+
+::-moz-selection {
+  /* Code for Firefox */
+  color: #fff;
+  background: $themecolor;
+}
+
+::selection {
+  color: #fff;
+  background: $themecolor;
+}

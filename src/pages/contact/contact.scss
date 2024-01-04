@@ -1,0 +1,324 @@
+@import "../../common/assets/css/main.scss";
+.offcanvas.contact-canva {
+  &.offcanvas-end {
+    @media only screen and (min-width: 421px) {
+      width: 350px;
+      border: none;
+    }
+    @media only screen and (min-width: 320px) and (max-width: 420px) {
+      width: 100%;
+      border: none;
+    }
+  }
+  .offcanvas-body {
+    padding: 0px;
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      .header-img {
+        position: relative;
+        img {
+          width: 100%;
+          height: 135px;
+          object-fit: cover;
+          object-position: center center;
+          border-radius: 0px;
+        }
+        width: auto;
+        padding: 0px;
+        .overlay {
+          border-radius: 0px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          box-shadow: rgb(0 0 0 / 35%) 0px 0px 0px 2000px inset;
+        }
+        span.back-btn {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          width: 28px;
+          height: 28px;
+          border-radius: 50%;
+          background-color: $themecolor;
+          cursor: pointer;
+          z-index: 1;
+          svg {
+            font-size: 18px;
+            color: #fff;
+            margin-left: -2px;
+          }
+        }
+      }
+      .heading {
+        padding: 0px 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-top: -90px;
+        img.bg-img {
+          height: 125px;
+          width: 100%;
+          object-fit: cover;
+          object-position: center;
+          position: absolute;
+          top: 0;
+        }
+
+        img.profile {
+          $size: 180px;
+          width: $size;
+          height: $size;
+          object-fit: cover;
+          border-radius: 50%;
+          object-position: top;
+          box-shadow: rgb(0 0 0 / 48%) 0px 0px 10px;
+          border: 3px solid #fff;
+          z-index: 1;
+        }
+        h3 {
+          margin: 0px 0px 0px 0px;
+          color: #1e2125;
+          font-family: $themefont;
+          font-size: 28px;
+          font-weight: 800;
+          letter-spacing: 3px;
+          line-height: 1;
+          @include themed() {
+            color: t("whitecolor");
+          }
+        }
+        p {
+          color: $themecolor;
+          font-family: $themefont;
+          font-size: 20px;
+          text-transform: capitalize;
+          margin: 0px;
+          font-weight: 600;
+          line-height: 1;
+          @include themed() {
+            color: t("whitecolor");
+          }
+        }
+        span.location {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 5px;
+          font-family: $themefont;
+          font-size: 16px;
+          line-height: 1;
+          color: #0e0739;
+          svg {
+            color: $themecolor;
+          }
+        }
+        ul {
+          padding: 0px;
+          margin: 0px;
+          display: flex;
+          align-items: center;
+          gap: 18px;
+          list-style-type: none;
+          z-index: 1;
+          position: relative;
+          li {
+            a {
+              width: 35px;
+              height: 35px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-radius: 50px;
+              $svg-size: 18px;
+              svg {
+                font-size: $svg-size;
+                color: #fff;
+              }
+              &.git {
+                background-color: #333;
+                svg {
+                  font-size: calc($svg-size + 4px);
+                }
+              }
+              &.linkedin {
+                background-color: #0e76a8;
+              }
+              &.mail {
+                background-color: #ea4335;
+              }
+              &.profile {
+                background-color: #f48024;
+              }
+              &.stack {
+                background-color: #1389fd;
+              }
+              &.stackover {
+                background-color: #f48024;
+              }
+            }
+          }
+        }
+      }
+      .details {
+        padding: 0px 10px;
+        border-top: 1px solid rgba($themecolor, 30%);
+        margin-top: 20px;
+        ul {
+          padding: 0px;
+          margin: 20px 0px 75px 0px;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: flex-start;
+          gap: 15px;
+          list-style-type: none;
+          position: relative;
+          li {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 10px;
+            font-family: $themefont;
+            font-weight: 500;
+            font-size: 17px;
+            color: #0e0739;
+            cursor: pointer;
+            &:hover {
+              span {
+                border-radius: 30% 70% 70% 30%/30% 30% 70% 70%;
+              }
+              a {
+                color: $themecolor;
+              }
+              color: $themecolor;
+            }
+            a {
+              text-decoration: none;
+              color: #0e0739;
+            }
+            span {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 35px;
+              height: 35px;
+              background-color: $themecolor;
+              cursor: pointer;
+              border-radius: 70% 30% 30% 70%/70% 70% 30% 30%;
+              transition: all ease 300ms;
+              -moz-transition: all ease 300ms;
+              -webkit-transition: all ease 300ms;
+              -o-transition: all ease 300ms;
+              -ms-transition: all ease 300ms;
+              svg {
+                font-size: 20px;
+                color: #fff;
+              }
+            }
+          }
+        }
+      }
+      .download-cv {
+        margin-top: auto;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        button {
+          outline: none;
+          box-shadow: none;
+          padding: 10px;
+          justify-content: center;
+          gap: 10px;
+          font-weight: 500;
+          font-size: 17px;
+          width: 100%;
+          cursor: pointer;
+          position: relative;
+          z-index: 2;
+          overflow: visible;
+          vertical-align: middle;
+          display: flex;
+          align-items: center;
+          border: none;
+          text-transform: capitalize;
+          text-align: center;
+          background-color: $themecolor;
+          color: #fff;
+          font-family: $themefont;
+          line-height: inherit;
+          border-radius: 0px;
+          -webkit-transition: background-color 0.25s linear,
+            color 0.4s ease-in-out;
+          transition: background-color 0.25s linear, color 0.4s ease-in-out;
+          text-decoration: none;
+          margin: 0px 0px 0px 0px;
+          &:before {
+            content: "";
+            position: absolute;
+            height: 100%;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            background-color: #000;
+            z-index: -1;
+            -webkit-transition: all 0.3s ease-out;
+            transition: all 0.3s ease-out;
+            border-radius: inherit;
+            @include themed() {
+              background-color: t("whitecolor");
+            }
+          }
+          &:hover {
+            color: #fff;
+            background-color: #000;
+            @include themed() {
+              background-color: t("whitecolor");
+              color: t("blackcolor");
+            }
+          }
+          &:hover::before {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+.offcanvas.contact-canva.dark-theme {
+  .offcanvas-body {
+    background-color: #0e0739;
+    .content {
+      .heading {
+        h3 {
+          color: #fff;
+        }
+        span.location {
+          color: #fff;
+        }
+      }
+      .details ul li {
+        &:hover {
+          a {
+            color: $themecolor;
+          }
+          color: $themecolor;
+        }
+        color: #fff;
+        a {
+          color: #fff;
+        }
+      }
+    }
+  }
+}

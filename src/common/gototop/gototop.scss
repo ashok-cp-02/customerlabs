@@ -1,0 +1,58 @@
+@import "../assets/css/main.scss";
+.top-to-btm {
+  position: relative;
+}
+.top-to-btm .icon-position {
+  position: fixed;
+  bottom: 80px;
+  right: 25px;
+  z-index: 20;
+}
+.top-to-btm .icon-style {
+  background-color: $themecolor;
+  // background: -webkit-linear-gradient(bottom, #064c3f 0%, #108060 100%);
+  // background: -o-linear-gradient(bottom, #064c3f 0%, #108060 100%);
+  // background: linear-gradient(to bottom, #064c3f 0%, #108060 100%);
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  color: #fff;
+  padding: 0px;
+  cursor: pointer;
+  // animation: movebtn 3s ease-in-out infinite;
+  transition: all 0.5s ease-in-out;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.top-to-btm .icon-style:hover {
+  animation: none;
+  /* background: var(--fgreen); */
+  // background: -webkit-linear-gradient(top, #064c3f 0%, #108060 100%);
+  // background: -o-linear-gradient(top, #064c3f 0%, #108060 100%);
+  // background: linear-gradient(to top, #064c3f 0%, #108060 100%);
+}
+@keyframes movebtn {
+  0% {
+    transform: translateY(0px);
+  }
+  25% {
+    transform: translateY(15px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  75% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+.top-to-btm button svg {
+  font-size: 30px;
+  fill: #fff;
+  // transform: rotate(270deg);
+}

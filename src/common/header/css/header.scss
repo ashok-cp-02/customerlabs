@@ -1,0 +1,268 @@
+@import "../../assets/css/main.scss";
+
+nav.main-header {
+  padding: 12px 0px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  @media (min-width: 992px) {
+    &.navbar-expand-lg .navbar-collapse {
+      display: flex !important;
+      flex-basis: auto;
+      justify-content: flex-end;
+    }
+  } // Common  Responsive
+  background-color: rgb(255 255 255 / 68%);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  @include themed() {
+    background-color: t("themedark2");
+    box-shadow: t("header-shadow");
+  }
+  .navbar-nav {
+    .nav-link {
+      color: #000;
+      @include themed() {
+        color: t("whitecolor");
+      }
+    }
+  }
+
+  .logo {
+    a {
+      font-family: $themefont;
+      font-weight: 500;
+      font-size: 30px;
+      color: #000;
+      line-height: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      text-transform: none;
+      margin-top: 0px;
+      @include themed() {
+        color: t("whitecolor");
+      }
+      .name {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+      }
+    }
+  }
+  .navbar-nav {
+    gap: 10px;
+    .nav-link {
+      font-family: $themefont;
+      font-size: 16px;
+      font-weight: 500;
+      color: #000;
+      border-bottom: 1px solid transparent;
+      width: fit-content;
+      &:hover {
+        color: $themecolor;
+        border-bottom: 1px solid $themecolor;
+      }
+    }
+
+    button.get-btn {
+      cursor: pointer;
+      position: relative;
+      z-index: 2;
+      overflow: visible;
+      vertical-align: middle;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      border: none;
+      text-transform: capitalize;
+      text-align: center;
+      background-color: $themecolor;
+      color: #fff;
+      font-family: $themefont;
+      padding: 5px 20px;
+      line-height: inherit;
+      border-radius: 5px;
+      -webkit-transition: background-color 0.25s linear, color 0.4s ease-in-out;
+      transition: background-color 0.25s linear, color 0.4s ease-in-out;
+      text-decoration: none;
+      margin: 0px 0px 0px 15px;
+      &:before {
+        content: "";
+        position: absolute;
+        height: 100%;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        background-color: #000;
+        z-index: -1;
+        -webkit-transition: all 0.3s ease-out;
+        transition: all 0.3s ease-out;
+        border-radius: inherit;
+        @include themed() {
+          background-color: t("whitecolor");
+        }
+      }
+      &:hover {
+        color: #fff;
+        background-color: #000;
+        @include themed() {
+          background-color: t("whitecolor");
+          color: t("blackcolor");
+        }
+      }
+      &:hover::before {
+        width: 100%;
+      }
+
+      span {
+        position: absolute;
+        z-index: 999;
+        top: -4px;
+        right: -4px;
+        background-color: #eb0729;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        box-shadow: rgb(0 0 0 / 29%) 0px 0px 8px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        color: #ea0a0c;
+        font-weight: 500;
+        transform: scale(1);
+        animation: pulse-red 1s infinite;
+        border: 2px solid #fff;
+        @keyframes pulse-red {
+          0% {
+            transform: scale(1);
+            box-shadow: 0 0 0 0 rgba(255, 82, 82, 0.7);
+          }
+
+          70% {
+            transform: scale(1);
+            box-shadow: 0 0 0 10px rgba(255, 82, 82, 0);
+          }
+
+          100% {
+            transform: scale(1);
+            box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
+          }
+        }
+      }
+    }
+  }
+  .navbar-nav .nav-link.active,
+  .navbar-nav .show > .nav-link {
+    color: $themecolor;
+    border-bottom: 1px solid $themecolor;
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 991px) {
+  nav.main-header {
+    border-top: none;
+    .logo a {
+      font-size: 27px;
+      margin-top: -5px;
+      .desgi p {
+        font-size: 12px;
+        letter-spacing: 2px;
+        word-spacing: 0px;
+      }
+      span {
+        width: 40px;
+        height: 40px;
+        svg {
+          font-size: 25px;
+        }
+      }
+    }
+    .navbar-nav button.get-btn {
+      margin-left: 0px;
+      margin-top: 10px;
+      width: fit-content;
+      margin-bottom: 10px;
+    }
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 991px) {
+  nav.main-header {
+    // nav
+    .logo img {
+      width: 150px;
+    }
+    .burger-menu {
+      width: 20px;
+      height: 17px;
+    }
+    .navbar-nav {
+      gap: 0px;
+      &:first-child {
+        margin-top: 12px;
+        border-top: 1px solid rgba($themecolor, 30%);
+      }
+      .nav-link {
+        font-size: 14px;
+        margin: 0px;
+      }
+      &.nav-login-div {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 25px;
+        .theme-btn .checkbox-wrapper-54 {
+          input:checked + .slider svg,
+          .slider {
+            padding-left: 0px;
+            padding-right: 0px;
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  nav.main-header {
+    // nav
+    .logo img {
+      width: 150px;
+    }
+    .navbar-nav {
+      .nav-link {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 575px) {
+  nav.main-header {
+    .logo img {
+      width: 150px;
+    }
+    .navbar-nav {
+      .nav-link {
+        font-size: 14px;
+      }
+    }
+  }
+}
+.toast-message {
+  font-family: $themefont;
+  font-size: 14px;
+  font-weight: 600;
+  color: #000000;
+}
+
+main.ashok-base-template {
+  margin-top: 65px;
+}
+@media only screen and (min-width: 320px) and (max-width: 991px) {
+  main.ashok-base-template {
+    margin-top: 62px;
+  }
+}
