@@ -45,7 +45,7 @@ const SegmentForm = () => {
     { value: "state", trait: "group" },
   ];
 
-  const handleSegmentFormClose = () => setSegmentFormShow(false);
+  //   const handleSegmentFormClose = () => setSegmentFormShow(false);
   const handleSegmentFormShow = () => setSegmentFormShow(true);
 
   const handleAddSchema = () => {
@@ -90,7 +90,7 @@ const SegmentForm = () => {
 
     axios
       .post(
-        "https://webhook.site/8364fdf2-d5bc-40cb-a3a1-f666a714b0a4",
+        "https://webhook.site/35b13486-af67-4b47-a8c6-4b053f2444cd",
         segmentObject
       )
       .then((response) => {
@@ -122,13 +122,13 @@ const SegmentForm = () => {
       <button onClick={handleSegmentFormShow}>Save Segment</button>
       <Offcanvas
         show={segmentFormShow}
-        onHide={handleSegmentFormClose}
+        onHide={resetForm}
         placement="end"
         className={`segment-form-canva ${theme === "dark" && "dark-theme"}`}
       >
         <Offcanvas.Body>
           <div className="body-content">
-            <div className="heading" onClick={handleSegmentFormClose}>
+            <div className="heading" onClick={resetForm}>
               <span>
                 <FaChevronLeft />
               </span>
