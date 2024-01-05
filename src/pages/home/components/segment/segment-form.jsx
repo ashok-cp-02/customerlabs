@@ -29,24 +29,16 @@ const SegmentForm = () => {
   const [segmentName, setSegmentName] = useState("");
   const [segmentNameError, setSegmentNameError] = useState(false);
   const [segmentSubmit, setSegmentSubmit] = useState(false);
-  const [schemaOptions, setSchemaOptions] = useState([
-    { value: "first_name", label: "First Name", traits: "user" },
-    { value: "last_name", label: "Last Name", traits: "user" },
-    { value: "gender", label: "Gender", traits: "group" },
-    { value: "age", label: "Age", traits: "user" },
-    { value: "account_name", label: "Account Name", traits: "group" },
-    { value: "city", label: "City", traits: "user" },
-    { value: "state", label: "State", traits: "group" },
-  ]);
-  const traits = [
-    { value: "first_name", trait: "user" },
-    { value: "last_name", trait: "user" },
-    { value: "gender", trait: "group" },
-    { value: "age", trait: "user" },
-    { value: "account_name", trait: "user" },
-    { value: "city", trait: "group" },
-    { value: "state", trait: "group" },
+  const Options = [
+    { id: 1, value: "first_name", label: "First Name", traits: "user" },
+    { id: 2, value: "last_name", label: "Last Name", traits: "user" },
+    { id: 3, value: "gender", label: "Gender", traits: "group" },
+    { id: 4, value: "age", label: "Age", traits: "user" },
+    { id: 5, value: "account_name", label: "Account Name", traits: "group" },
+    { id: 6, value: "city", label: "City", traits: "user" },
+    { id: 7, value: "state", label: "State", traits: "group" },
   ];
+  const [schemaOptions, setSchemaOptions] = useState([...Options]);
 
   //   const handleSegmentFormClose = () => setSegmentFormShow(false);
   const handleSegmentFormShow = () => setSegmentFormShow(true);
@@ -82,8 +74,7 @@ const SegmentForm = () => {
       schema: schemas.reduce((acc, schema) => {
         acc.push({
           [schema]:
-            schemaOptions.find((option) => option.value === schema)?.label ||
-            schema,
+            Options.find((option) => option.value === schema)?.label || schema,
         });
         return acc;
       }, []),
@@ -130,15 +121,7 @@ const SegmentForm = () => {
 
   const resetForm = () => {
     setSchemas([]);
-    setSchemaOptions([
-      { value: "first_name", label: "First Name", traits: "user" },
-      { value: "last_name", label: "Last Name", traits: "user" },
-      { value: "gender", label: "Gender", traits: "group" },
-      { value: "age", label: "Age", traits: "user" },
-      { value: "account_name", label: "Account Name", traits: "group" },
-      { value: "city", label: "City", traits: "user" },
-      { value: "state", label: "State", traits: "group" },
-    ]);
+    setSchemaOptions([...Options]);
     setSegmentName("");
     setSegmentNameError(false);
     setSegmentFormShow(false);
@@ -198,8 +181,8 @@ const SegmentForm = () => {
                         <li key={index}>
                           <span
                             className={`traits-list ${
-                              traits.find((option) => option.value === schema)
-                                ?.trait || ""
+                              Options.find((option) => option.value === schema)
+                                ?.traits || ""
                             }`}
                           ></span>
 

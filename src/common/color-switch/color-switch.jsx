@@ -60,7 +60,7 @@ const ColorSwitch = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []); // Empty dependency array to run the effect only once
-  const themes = ["#1AB394", "#6366f1", "#015fe0", "#d74996", "#30a499"];
+  const themes = ["#1AB394", "#6366f1", "#015fe0", "#d74996"];
   return (
     <>
       <style type="text/css">{`

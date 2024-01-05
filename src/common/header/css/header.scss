@@ -1,7 +1,7 @@
 @import "../../assets/css/main.scss";
 
 nav.main-header {
-  padding: 12px 0px;
+  padding: 14px 0px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   @media (min-width: 992px) {
     &.navbar-expand-lg .navbar-collapse {
@@ -246,11 +246,11 @@ nav.main-header {
 }
 
 main.ashok-base-template {
-  margin-top: 65px;
+  margin-top: 62px;
 }
 @media only screen and (min-width: 320px) and (max-width: 991px) {
   main.ashok-base-template {
-    margin-top: 48px;
+    margin-top: 52px;
   }
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {

@@ -59,6 +59,19 @@
             margin-bottom: 5px;
             border-radius: 0px;
           }
+          $inputColor: #929393;
+          input::-webkit-input-placeholder {
+            color: $inputColor;
+          }
+          input::-moz-placeholder {
+            color: $inputColor;
+          }
+          input:-ms-input-placeholder {
+            color: $inputColor;
+          }
+          input:-moz-placeholder {
+            color: $inputColor;
+          }
           span {
             font-family: $themefont3;
             font-size: 14px;
@@ -144,6 +157,12 @@
                   svg {
                     font-size: 20px;
                     color: #657a93;
+                  }
+                  &:hover {
+                    background-color: #d92662;
+                    svg {
+                      color: #fff;
+                    }
                   }
                 }
                 span.traits-list {
