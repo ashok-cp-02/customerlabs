@@ -86,6 +86,13 @@
           }
         }
         .add-segment {
+          p.not-avil {
+            font-family: $themefont3;
+            font-size: 15px;
+            color: #d92662;
+            margin-bottom: 15px;
+            margin-top: 20px;
+          }
           .traits {
             margin: 30px 0px;
             ul {
@@ -195,6 +202,9 @@
                 font-family: $themefont3;
                 font-size: 14px;
                 color: #384050;
+                option.default-option {
+                  color: #929393;
+                }
               }
               span.traits-list {
                 width: 10px;
@@ -342,6 +352,9 @@
             p {
               font-size: 14.5px;
             }
+          }
+          .add-segment p.not-avil {
+            font-size: 14.5px;
           }
         }
         .footer-div {

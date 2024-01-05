@@ -29,6 +29,7 @@ const SegmentForm = () => {
   const [segmentName, setSegmentName] = useState("");
   const [segmentNameError, setSegmentNameError] = useState(false);
   const [segmentSubmit, setSegmentSubmit] = useState(false);
+  const [selectedSchema, setSelectedSchema] = useState("");
   const Options = [
     { id: 1, value: "first_name", label: "First Name", traits: "user" },
     { id: 2, value: "last_name", label: "Last Name", traits: "user" },
@@ -44,13 +45,19 @@ const SegmentForm = () => {
   const handleSegmentFormShow = () => setSegmentFormShow(true);
 
   const handleAddSchema = () => {
-    const selectedValue = document.getElementById("schemaSelector").value;
+    // Check if a schema is selected
+    if (!selectedSchema) {
+      // Handle the case when no schema is selected
+      return;
+    }
 
-    if (!schemas.includes(selectedValue)) {
-      setSchemas((prevSchemas) => [...prevSchemas, selectedValue]);
+    if (!schemas.includes(selectedSchema)) {
+      setSchemas((prevSchemas) => [...prevSchemas, selectedSchema]);
       setSchemaOptions((prevOptions) =>
-        prevOptions.filter((option) => option.value !== selectedValue)
+        prevOptions.filter((option) => option.value !== selectedSchema)
       );
+      // Clear the selected schema after adding
+      setSelectedSchema("");
     }
   };
 
@@ -219,7 +226,7 @@ const SegmentForm = () => {
                             <option value={schema}>{schema}</option>
                             {schemaOptions.map((option) => (
                               <option key={option.value} value={option.value}>
-                                {option.label}
+                                {option.value}
                               </option>
                             ))}
                           </Form.Select>
@@ -234,22 +241,46 @@ const SegmentForm = () => {
                     </ul>
                   </div>
                 )}
-                <div className="add-btn">
-                  <div className="dropdown-div">
-                    <span className="traits-list"></span>
-                    <Form.Select
-                      id="schemaSelector"
-                      aria-label="Default select example"
-                    >
-                      {schemaOptions.map((option) => (
-                        <option key={option.value} value={option.value}>
-                          {option.label}
-                        </option>
-                      ))}
-                    </Form.Select>
-                  </div>
-                  <button onClick={handleAddSchema}>+ Add new schema</button>
-                </div>
+                {schemaOptions.length === 0 ? (
+                  <>
+                    <p className="not-avil">No More Schema</p>
+                  </>
+                ) : (
+                  <>
+                    <div className="add-btn">
+                      <div className="dropdown-div">
+                        <span className="traits-list"></span>
+                        <Form.Select
+                          id="schemaSelector"
+                          aria-label="Default select example"
+                          value={selectedSchema}
+                          onChange={(e) => setSelectedSchema(e.target.value)}
+                        >
+                          <option
+                            className="default-option"
+                            value=""
+                            disabled
+                            selected
+                            hidden
+                          >
+                            Add schema to segment
+                          </option>
+                          {schemaOptions.map((option) => (
+                            <option key={option.value} value={option.value}>
+                              {option.label}
+                            </option>
+                          ))}
+                        </Form.Select>
+                      </div>
+                      <button
+                        onClick={handleAddSchema}
+                        disabled={!selectedSchema}
+                      >
+                        + Add new schema
+                      </button>
+                    </div>
+                  </>
+                )}
               </div>
             </div>
             <div className="footer-div">
