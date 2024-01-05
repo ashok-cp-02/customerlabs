@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/customerlabs/static/css/main.37fdc53c.css",
+    "main.css": "/customerlabs/static/css/main.4a5ad130.css",
     "main.js": "/customerlabs/static/js/main.daaba45b.js",
     "static/js/787.a13d487b.chunk.js": "/customerlabs/static/js/787.a13d487b.chunk.js",
     "static/media/bg1.jpg": "/customerlabs/static/media/bg1.db96fcb419daff0f494e.jpg",
     "static/media/Ashok-UI-Developer.pdf": "/customerlabs/static/media/Ashok-UI-Developer.4a129900b827f2f90f36.pdf",
     "static/media/ashok1.jpg": "/customerlabs/static/media/ashok1.82fa2021bfb4b05443de.jpg",
     "index.html": "/customerlabs/index.html",
-    "main.37fdc53c.css.map": "/customerlabs/static/css/main.37fdc53c.css.map",
+    "main.4a5ad130.css.map": "/customerlabs/static/css/main.4a5ad130.css.map",
     "main.daaba45b.js.map": "/customerlabs/static/js/main.daaba45b.js.map",
     "787.a13d487b.chunk.js.map": "/customerlabs/static/js/787.a13d487b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.37fdc53c.css",
+    "static/css/main.4a5ad130.css",
     "static/js/main.daaba45b.js"
   ]
 }
