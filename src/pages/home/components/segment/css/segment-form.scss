@@ -360,3 +360,39 @@
     width: 445px;
   }
 }
+
+.offcanvas.segment-form-canva.dark-theme {
+  .offcanvas-body .body-content {
+    .content {
+      background-color: #09032b;
+      .segment-name {
+        label {
+          color: #fff;
+        }
+        p {
+          color: #fff;
+        }
+        input {
+          background-color: rgb(13, 6, 32);
+          color: #fff;
+        }
+      }
+      .add-segment {
+        .traits ul li {
+          color: #fff;
+        }
+        .dynamic-schema ul li select {
+          background-color: rgb(13, 6, 32);
+          color: #fff;
+        }
+        .add-btn .dropdown-div select {
+          background-color: rgb(13, 6, 32);
+          color: #fff;
+        }
+      }
+    }
+    .footer-div {
+      background-color: rgb(13, 6, 32);
+    }
+  }
+}

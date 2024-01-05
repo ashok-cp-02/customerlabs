@@ -6,12 +6,6 @@ $themefont2: ("Monomaniac One", sans-serif);
 $themefont3: ("Poppins", sans-serif);
 
 $themecolor: var(--themecolor);
-// $themecolor: #6366f1;
-// $themecolor: #ff014f;
-// $themecolor: #d74996;
-// $themecolor: #015fe0;
-// $themecolor: #30a499;
-// $themecolor: #55e6a5;
 
 $themes: (
   light: (
@@ -21,9 +15,6 @@ $themes: (
   dark: (
     whitecolor: #fff,
     blackcolor: #000,
-    light-green: #00c070,
-    green2: #108060,
-    green3: #186c60,
     dark1: #070f1c,
     dark2: #131927,
     dark3: rgb(8 21 34),
