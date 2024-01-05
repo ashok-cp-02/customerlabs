@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/customerlabs/static/css/main.3492b8b0.css",
-    "main.js": "/customerlabs/static/js/main.5040064c.js",
+    "main.css": "/customerlabs/static/css/main.bd0409c2.css",
+    "main.js": "/customerlabs/static/js/main.7aaaa1ed.js",
     "static/js/787.a13d487b.chunk.js": "/customerlabs/static/js/787.a13d487b.chunk.js",
     "static/media/bg1.jpg": "/customerlabs/static/media/bg1.db96fcb419daff0f494e.jpg",
     "static/media/Ashok-UI-Developer.pdf": "/customerlabs/static/media/Ashok-UI-Developer.4a129900b827f2f90f36.pdf",
     "static/media/ashok1.jpg": "/customerlabs/static/media/ashok1.82fa2021bfb4b05443de.jpg",
     "index.html": "/customerlabs/index.html",
-    "main.3492b8b0.css.map": "/customerlabs/static/css/main.3492b8b0.css.map",
-    "main.5040064c.js.map": "/customerlabs/static/js/main.5040064c.js.map",
+    "main.bd0409c2.css.map": "/customerlabs/static/css/main.bd0409c2.css.map",
+    "main.7aaaa1ed.js.map": "/customerlabs/static/js/main.7aaaa1ed.js.map",
     "787.a13d487b.chunk.js.map": "/customerlabs/static/js/787.a13d487b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3492b8b0.css",
-    "static/js/main.5040064c.js"
+    "static/css/main.bd0409c2.css",
+    "static/js/main.7aaaa1ed.js"
   ]
 }
