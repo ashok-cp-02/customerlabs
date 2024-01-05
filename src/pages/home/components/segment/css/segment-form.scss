@@ -216,6 +216,7 @@
         align-items: center;
         gap: 20px;
         height: 70px;
+
         button {
           cursor: pointer;
           position: relative;
@@ -265,31 +266,78 @@
             width: 100%;
           }
           &.save {
-            background-color: $themecolor;
+            background-color: #1ab394;
             color: #fff;
+            width: 175px;
+            text-align: center;
+            justify-content: center;
             &:before {
-              background-color: #106050;
+              background-color: #00c070;
               color: #fff;
             }
             &:hover {
-              background-color: #106050;
+              background-color: #00c070;
               color: #fff;
             }
           }
           &.cancel {
-            background-color: #fff;
-            color: #d92662;
+            color: #fff;
+            background-color: #d92662;
             &:before {
-              background-color: #d92662;
-              color: #fff;
+              color: #d92662;
+              background-color: #fff;
             }
             &:hover {
-              color: #fff;
-              background-color: #d92662;
+              background-color: #fff;
+              color: #d92662;
             }
           }
         }
       }
     }
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+  .offcanvas.segment-form-canva {
+    width: 100%;
+    .offcanvas-body {
+      .body-content {
+        .heading {
+          height: 60px;
+          h3 {
+            font-size: 16px;
+          }
+          span {
+            svg {
+              font-size: 15px;
+            }
+          }
+        }
+        .content {
+          height: calc(100vh - 120px);
+          .segment-name {
+            label {
+              font-size: 14.5px;
+            }
+            p {
+              font-size: 14.5px;
+            }
+          }
+        }
+        .footer-div {
+          height: 60px;
+          button {
+            font-size: 13.5px;
+            padding: 8px 20px;
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (min-width: 500px) {
+  .offcanvas.segment-form-canva {
+    width: 445px;
   }
 }

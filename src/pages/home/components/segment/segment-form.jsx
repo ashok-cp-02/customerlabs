@@ -5,7 +5,7 @@ import { useContext, useState } from "react";
 //? Assets
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Form from "react-bootstrap/Form";
-import Select from "react-select";
+// import Select from "react-select";
 import axios from "axios";
 import { toast } from "react-toastify";
 
@@ -28,6 +28,7 @@ const SegmentForm = () => {
   const [schemas, setSchemas] = useState([]);
   const [segmentName, setSegmentName] = useState("");
   const [segmentNameError, setSegmentNameError] = useState(false);
+  const [segmentSubmit, setSegmentSubmit] = useState(false);
   const [schemaOptions, setSchemaOptions] = useState([
     { value: "first_name", label: "First Name", traits: "user" },
     { value: "last_name", label: "Last Name", traits: "user" },
@@ -75,7 +76,7 @@ const SegmentForm = () => {
       setSegmentNameError(true);
       return;
     }
-
+    setSegmentSubmit(true);
     const segmentObject = {
       segment_name: segmentName,
       schema: schemas.reduce((acc, schema) => {
@@ -105,9 +106,10 @@ const SegmentForm = () => {
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          theme: "light",
+          theme: theme === "dark" ? "dark" : "light",
         });
         resetForm();
+        setSegmentSubmit(false);
       })
       .catch((error) => {
         console.error("Error sending data to webhook:", error);
@@ -119,9 +121,10 @@ const SegmentForm = () => {
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          theme: "light",
+          theme: theme === "dark" ? "dark" : "light",
         });
-        resetForm();
+        // resetForm();
+        setSegmentSubmit(false);
       });
   };
 
@@ -188,64 +191,66 @@ const SegmentForm = () => {
                     </li>
                   </ul>
                 </div>
-                <div className="dynamic-schema">
-                  <ul>
-                    {schemas.map((schema, index) => (
-                      <li key={index}>
-                        <span
-                          className={`traits-list ${
-                            traits.find((option) => option.value === schema)
-                              ?.trait || ""
-                          }`}
-                        ></span>
+                {schemas.length !== 0 && (
+                  <div className="dynamic-schema">
+                    <ul>
+                      {schemas.map((schema, index) => (
+                        <li key={index}>
+                          <span
+                            className={`traits-list ${
+                              traits.find((option) => option.value === schema)
+                                ?.trait || ""
+                            }`}
+                          ></span>
 
-                        <Form.Select
-                          aria-label="Default select example"
-                          defaultValue={schema}
-                          onChange={(e) => {
-                            const selectedValue = e.target.value;
+                          <Form.Select
+                            aria-label="Default select example"
+                            defaultValue={schema}
+                            onChange={(e) => {
+                              const selectedValue = e.target.value;
 
-                            // Remove the selected option from schemaOptions
-                            const updatedOptions = schemaOptions.filter(
-                              (option) => option.value !== selectedValue
-                            );
+                              // Remove the selected option from schemaOptions
+                              const updatedOptions = schemaOptions.filter(
+                                (option) => option.value !== selectedValue
+                              );
 
-                            // Add the previous value back to schemaOptions
-                            if (schema) {
-                              updatedOptions.push({
-                                value: schema,
-                                label: schema,
+                              // Add the previous value back to schemaOptions
+                              if (schema) {
+                                updatedOptions.push({
+                                  value: schema,
+                                  label: schema,
+                                });
+                              }
+
+                              // Update schemaOptions
+                              setSchemaOptions(updatedOptions);
+
+                              // Update schemas
+                              setSchemas((prevSchemas) => {
+                                const newSchemas = [...prevSchemas];
+                                newSchemas[index] = selectedValue;
+                                return newSchemas;
                               });
-                            }
-
-                            // Update schemaOptions
-                            setSchemaOptions(updatedOptions);
-
-                            // Update schemas
-                            setSchemas((prevSchemas) => {
-                              const newSchemas = [...prevSchemas];
-                              newSchemas[index] = selectedValue;
-                              return newSchemas;
-                            });
-                          }}
-                        >
-                          <option value={schema}>{schema}</option>
-                          {schemaOptions.map((option) => (
-                            <option key={option.value} value={option.value}>
-                              {option.label}
-                            </option>
-                          ))}
-                        </Form.Select>
-                        <button
-                          className="minus-btn"
-                          onClick={() => handleRemoveSchema(index)}
-                        >
-                          <FaMinus />
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                            }}
+                          >
+                            <option value={schema}>{schema}</option>
+                            {schemaOptions.map((option) => (
+                              <option key={option.value} value={option.value}>
+                                {option.label}
+                              </option>
+                            ))}
+                          </Form.Select>
+                          <button
+                            className="minus-btn"
+                            onClick={() => handleRemoveSchema(index)}
+                          >
+                            <FaMinus />
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
                 <div className="add-btn">
                   <div className="dropdown-div">
                     <span className="traits-list"></span>
@@ -265,8 +270,12 @@ const SegmentForm = () => {
               </div>
             </div>
             <div className="footer-div">
-              <button className="save" onClick={handleSaveSegment}>
-                Save the Segment
+              <button
+                disabled={segmentSubmit}
+                className="save"
+                onClick={handleSaveSegment}
+              >
+                {segmentSubmit ? "Loading..." : "Save the Segment"}
               </button>
               <button onClick={resetForm} className="cancel">
                 Cancel

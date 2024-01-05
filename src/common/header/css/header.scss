@@ -167,20 +167,7 @@ nav.main-header {
   nav.main-header {
     border-top: none;
     .logo a {
-      font-size: 27px;
-      margin-top: -5px;
-      .desgi p {
-        font-size: 12px;
-        letter-spacing: 2px;
-        word-spacing: 0px;
-      }
-      span {
-        width: 40px;
-        height: 40px;
-        svg {
-          font-size: 25px;
-        }
-      }
+      font-size: 24px;
     }
     .navbar-nav button.get-btn {
       margin-left: 0px;
@@ -262,6 +249,11 @@ main.ashok-base-template {
   margin-top: 65px;
 }
 @media only screen and (min-width: 320px) and (max-width: 991px) {
+  main.ashok-base-template {
+    margin-top: 48px;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
   main.ashok-base-template {
     margin-top: 62px;
   }
